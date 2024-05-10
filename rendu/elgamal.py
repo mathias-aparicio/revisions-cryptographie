@@ -47,8 +47,12 @@ def gen_elgamal_get_secret(pk_a,sk_a,pk_b,sk_b,p):
 # output: chaine de charactere c en binaire  répresentant c 
 # contrainte: secret plus grand que message 
 def enc_elgamal(m,secret,p):
+    """
+    entree : m message, secret cle prive, p premier
+    sortie : c chiffre avec c = g^m * secret mod p
+    """
     int_m = common.str_to_int(m)  
-    return common.expo_modulaire_fast(1, int_m*secret, p)
+    return common.expo_modulaire_fast(1, int_m*secret, p) # m*secret mod p
 
 # print("binaire enc_elgamal(abc, abcde, 9) :", enc_elgamal(26, gen_elgamal_get_secret(12), 29))
 
